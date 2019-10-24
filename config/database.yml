@@ -77,6 +77,11 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
+staging:
+  <<: *default
+  database: PGdbTest_production
+  username: PGdbTest
+  password: <%= ENV['PGDBTEST_DATABASE_PASSWORD'] %>
 #
 production:
   <<: *default
