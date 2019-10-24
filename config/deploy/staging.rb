@@ -11,6 +11,13 @@
 server '13.58.38.238', user: 'deploy', roles: %w{app db web}
 set :stage, :staging
 set :branch, 'develop'
+
+task :restart do
+  on roles(:app) do
+   execute :sudo, :systemctl, :restart, :sidekiq
+  end
+end
+
 # role-based syntax
 # ==================
 
